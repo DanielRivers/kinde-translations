@@ -51,7 +51,7 @@ jobs:
           IS_DEEPL_FREE_API: "false"
           DEEPL_NON_SPLITTING_TAGS: 'regex:\\$\\{[a-zA-Z0-9_]+\\}'
           COMMIT_CHANGES: "true" # Set to 'true' to enable auto-commit/push of translated files
-        run: npx ts-node sync-and-translate.js
+        run: npx ts-node sync-and-translate.ts
 
       # Optional: Add a step to comment on the PR with changes, or post a build status
       # - name: Report Translation Status
