@@ -15,6 +15,7 @@ async function run() {
     const excludeFromTargetGlob = process.env.EXCLUDE_FROM_TARGET_GLOB
     const baseSha = process.env.BASE_COMMIT_SHA
     const headSha = process.env.HEAD_COMMIT_SHA
+    const gitBranchName = process.env.GIT_BRANCH_NAME
     const deeplApiKey = process.env.DEEPL_API_KEY
     const commitChanges = process.env.COMMIT_CHANGES === "true"
     const isDeepLFreeApi = process.env.IS_DEEPL_FREE_API === "true"
@@ -114,6 +115,9 @@ async function run() {
       execSync(
         'git config user.email "github-actions[bot]@users.noreply.github.com"'
       )
+      
+      console.log("checkout:", gitBranchName)
+      execSync(`git checkout ${gitBranchName}`)
 
       for (const filePath of filesModified) {
         execSync(`git add "${filePath}"`)

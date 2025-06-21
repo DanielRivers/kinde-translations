@@ -44,6 +44,7 @@ jobs:
           # Git Commit SHAs for comparison
           BASE_COMMIT_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+          GIT_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
           SOURCE_JSON_FILE_PATH: "./en/auth.json" # Adjust to your primary source JSON file path
           TARGET_JSON_GLOB_PATTERN: "./**/auth.json"
           EXCLUDE_FROM_TARGET_GLOB: "/en/auth.json"
